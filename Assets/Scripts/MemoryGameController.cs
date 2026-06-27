@@ -231,6 +231,21 @@ public class MemoryGameController : MonoBehaviour
         spawnedButtons.Clear();
         cardValues.Clear();
 
+        // Configura griglia per massimo 3 righe
+        int numCards = cardsPerLevel[loadedData.currentLevel];
+        int cols = Mathf.CeilToInt(numCards / 3f);
+        GridLayoutGroup grid = gridContainer.GetComponent<GridLayoutGroup>();
+        if (grid != null)
+        {
+            float cell, gap;
+            if      (cols <= 4) { cell = 160f; gap = 15f; }
+            else if (cols == 5) { cell = 135f; gap = 12f; }
+            else                { cell = 115f; gap = 10f; } // 6 colonne
+            grid.constraintCount = cols;
+            grid.cellSize  = new Vector2(cell, cell);
+            grid.spacing   = new Vector2(gap, gap);
+        }
+
         List<int> deck = new List<int>();
         int totalPairs = cardsPerLevel[loadedData.currentLevel] / 2;
         for (int i = 0; i < totalPairs; i++) { deck.Add(i); deck.Add(i); }

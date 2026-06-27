@@ -89,14 +89,14 @@ public class GameUIController : MonoBehaviour
         {
             resultTitle.text = "LIVELLO COMPLETATO!";
             resultTitle.color = Color.green;
-            resultMessage.text = string.IsNullOrEmpty(details) ? "Ottimo lavoro!" : "Ottimo lavoro!\n\n" + details;
+            resultMessage.text = string.IsNullOrEmpty(details) ? "Ottimo lavoro!" : "Ottimo lavoro!\n" + details;
             nextLevelButton.gameObject.SetActive(true);
         }
         else
         {
             resultTitle.text = "TEMPO SCADUTO";
             resultTitle.color = Color.red;
-            resultMessage.text = string.IsNullOrEmpty(details) ? "Non mollare, riprova!" : "Non mollare, riprova!\n\n" + details;
+            resultMessage.text = string.IsNullOrEmpty(details) ? "Non mollare, riprova!" : "Non mollare, riprova!\n" + details;
             nextLevelButton.gameObject.SetActive(false);
         }
     }
