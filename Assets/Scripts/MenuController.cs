@@ -1,27 +1,36 @@
 using UnityEngine;
-using UnityEngine.UI; // Serve per l'Input Field (Legacy)
-using UnityEngine.SceneManagement; // Serve per cambiare scena
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Gestisce il menu principale del gioco.
+/// Si occupa di leggere il nome del paziente e avviare la partita.
+/// </summary>
 public class MenuController : MonoBehaviour
 {
-    public InputField nameInput; // Il campo dove scrivi il nome
+    // Campo di testo dove il terapista o il paziente inserisce il proprio nome
+    public InputField nameInput;
 
+    /// <summary>
+    /// Chiamata dal bottone "Inizia" nella scena del menu.
+    /// Salva il nome del giocatore e carica la scena di gioco.
+    /// </summary>
     public void StartGame()
     {
-        // 1. Prendi il testo scritto
+        // Legge il testo inserito nel campo nome
         string playerName = nameInput.text;
 
-        // 2. Se Ë vuoto, usa un nome di default
+        // Se il campo √® vuoto, assegna un nome di default
         if (string.IsNullOrEmpty(playerName))
         {
             playerName = "Paziente";
         }
 
-        // 3. Salva il nome nella memoria di Unity
+        // Salva il nome nei PlayerPrefs cos√¨ la scena di gioco pu√≤ recuperarlo
         PlayerPrefs.SetString("SavedPlayerName", playerName);
         PlayerPrefs.Save();
 
-        // 4. Carica la scena del gioco (assicurati che si chiami ESATTAMENTE cosÏ)
+        // Carica la scena principale del gioco
         SceneManager.LoadScene("GameScene");
     }
 }
