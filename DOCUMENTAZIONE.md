@@ -372,3 +372,9 @@ Il progetto è pubblicato su: `https://github.com/LayfPhoenix/GiocoGiulia`
 ```bash
 git clone https://github.com/LayfPhoenix/GiocoGiulia.git
 ```
+
+
+## Improvements
+
+- Aggiungere pulsate d'uscita
+- modificare immagini senza sfondo
