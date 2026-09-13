@@ -20,4 +20,10 @@ public class MenuController : MonoBehaviour
         // 4. Carica la scena del gioco (assicurati che si chiami ESATTAMENTE cos�)
         SceneManager.LoadScene("GameScene");
     }
+
+    public void QuitGame()
+    {
+        // Chiudi l'applicazione
+        Application.Quit();
+    }
 }
